@@ -1,0 +1,45 @@
+/usr/local/bin/geth \
+	--http \
+	--http.port 8545 \
+	--http.api=eth,net,web3,admin,engine,debug \
+	--http.addr=0.0.0.0 \
+	--http.vhosts=* \
+	--http.corsdomain=* \
+	--graphql \
+	--usb \
+	--ws \
+	--ws.api=eth,net,web3,admin,engine,debug \
+	--ws.port 8546 \
+	--ws.addr=0.0.0.0 \
+	--ws.origins=* \
+	--rpc.allow-unprotected-txs \
+	--identity "Tokio-SG1" \
+	--maxpeers 1000 \
+	--nat extip:18.140.72.250 \
+	--metrics \
+	--metrics.addr 127.0.0.1 \
+	--metrics.expensive \
+	--metrics.influxdb \
+	--metrics.influxdb.username "tokiogram" \
+	--metrics.influxdb.database "tokiogram" \
+	--metrics.influxdb.password "tokiogram" \
+	--metrics.influxdb.endpoint "http://127.0.0.1:8086" \
+	--metrics.port 6060 \
+	--nodiscover \
+	--networkid 130 \
+	--datadir "/home/ubuntu/engram-tokio/geth/1" \
+	--authrpc.addr="localhost" \
+	--authrpc.port 8551 \
+	--port 30303 \
+	--discovery.port 30303 \
+	--verbosity 3 \
+	--syncmode full \
+	--blobpool.datacap 10737418240 \
+	--blobpool.datadir "blobpool" \
+	--blobpool.pricebump 100 \
+	--log.rotate \
+	--log.compress \
+	--log.maxsize 100 \
+	--log.maxage 5 \
+	--log.maxbackups 10 \
+	> /mnt/volume_sgp1_05/testnet/logs/geth-1.log &

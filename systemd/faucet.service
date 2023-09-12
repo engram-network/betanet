@@ -1,0 +1,18 @@
+[Unit]
+Description=Engram Faucet Client
+
+[Service]
+Type=simple
+User=ubuntu
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/bin/engram-faucet \
+        -httpport 8080 \
+        -wallet.provider http://localhost:8545 \
+        -faucet.amount 32 \
+        -faucet.minutes 1440 \
+        -queuecap 100 \
+        -wallet.privkey ab463eab8b4ff044639c578746119e475349a270bd059cfd0de290f97fefcf67
+
+[Install]
+WantedBy=default.target

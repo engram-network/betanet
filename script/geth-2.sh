@@ -1,0 +1,34 @@
+nohup geth \
+	    --http \
+	    --http.port 8547 \
+	    --http.api=eth,net,web3,admin,engine,debug,txpool \
+	    --http.addr=0.0.0.0 \
+	    --http.vhosts=* \
+	    --http.corsdomain=* \
+	    --graphql \
+	    --ws \
+	    --ws.api=eth,net,web3,admin,engine,debug,txpool \
+	    --ws.port 8548 \
+	    --ws.addr=0.0.0.0 \
+	    --ws.origins=* \
+	    --rpc.allow-unprotected-txs \
+	    --identity "Tokio-SG2" \
+	    --maxpeers 1000 \
+	    --nat extip:18.140.72.250 \
+	    --metrics \
+	    --metrics.addr 127.0.0.1 \
+	    --metrics.port 6061 \
+	    --nodiscover \
+	    --networkid 130 \
+	    --datadir "/home/ubuntu/engram-tokio/geth/2" \
+	    --authrpc.jwtsecret=/home/ubuntu/engram-tokio/output/el/jwtsecret \
+	    --authrpc.addr="localhost" \
+	    --authrpc.port 8552 \
+	    --port 30304 \
+	    --discovery.port 30304 \
+	    --verbosity 3 \
+	    --syncmode full \
+	    --blobpool.datacap 10737418240 \
+	    --blobpool.datadir "blobpool" \
+	    --blobpool.pricebump 100 \
+		> /mnt/volume_sgp1_05/testnet/logs/geth-2.log &

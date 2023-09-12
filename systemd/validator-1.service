@@ -1,0 +1,27 @@
+[Unit]
+Description=Engram Tokio Client Validator Layer
+
+[Service]
+Type=simple
+User=ubuntu
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/bin/lighthouse vc \
+          --http \
+          --unencrypted-http-transport \
+          --init-slashing-protection \
+          --http-allow-origin="*" \
+          --http-port 5062 \
+          --http-address=127.0.0.1 \
+          --metrics \
+          --metrics-address 127.0.0.1 \
+          --metrics-allow-origin="*" \
+          --metrics-port 5064 \
+          --datadir "/home/ubuntu/engram-tokio/validator/1" \
+          --testnet-dir "/home/ubuntu/engram-tokio/output/custom_config_data" \
+          --suggested-fee-recipient "0x9999995993dd7eafd2753A4c7E35c2354B112036" \
+          --graffiti "Tokio-SG1" \
+          --beacon-nodes "http://localhost:5052"
+
+[Install]
+WantedBy=default.target

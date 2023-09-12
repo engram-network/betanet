@@ -1,0 +1,41 @@
+[Unit]
+Description=Engram Tokio Client Consensus Layer
+
+[Service]
+Type=simple
+User=ubuntu
+Restart=on-failure
+RestartSec=5s
+ExecStart=/usr/local/bin/lighthouse bn \
+          --http \
+          --eth1 \
+          --gui \
+          --staking \
+          --http-address=127.0.0.1 \
+          --http-allow-sync-stalled \
+          --subscribe-all-subnets \
+          --http-allow-origin="*" \
+          --eth1-endpoints "http://127.0.0.1:8547" \
+          --execution-endpoints "http://127.0.0.1:8552" \
+          --genesis-backfill \
+          --http-port=5053 \
+          --enr-address 18.142.177.161 \
+          --metrics \
+          --metrics-address 127.0.0.1 \
+          --metrics-allow-origin="*" \
+          --metrics-port=5055 \
+          --enr-udp-port=9001 \
+          --enr-tcp-port=9001 \
+          --discovery-port=9001 \
+          --port=9001 \
+          --target-peers 400 \
+          --logfile-max-number 5 \
+          --logfile-max-size 200 \
+          --logfile-compress \
+          --testnet-dir "/home/ubuntu/engram-tokio/output/custom_config_data" \
+          --datadir "/home/ubuntu/engram-tokio/beacon/2" \
+          --boot-nodes="enr:-Ly4QLtm8Hboq1UCDL2e21WxTOBRcRRY7nBvWORg_merWjKkWvmIRTgP3CtfkilGo1Yabn6ImSo2DuMhVbJkHy7bCQNFh2F0dG5ldHOI__________-EZXRoMpDgqA8zQAATC___________gmlkgnY0gmlwhBKOsaGJc2VjcDI1NmsxoQPhlDhpVeUQxaWPaTEOFrMB9NO87nRApQjD8_bHxXMFcYhzeW5jbmV0cw-DdGNwgiMog3VkcIIjKA,enr:-Ly4QHb8sr2c8FM0yreB2CZkEMU3PtXAMmGj32bxcOPJPaFQN-nBG7g2lyInbo-RBarWnkG38UkCDlMlafStJLZus4pFh2F0dG5ldHOI__________-EZXRoMpDgqA8zQAATC___________gmlkgnY0gmlwhBKMSPqJc2VjcDI1NmsxoQLIsciX5Uzsz_xMvRzkg37lPJBJmIY-QQuRkkgJMZdV8YhzeW5jbmV0cw-DdGNwgiMog3VkcIIjKA,enr:-Ly4QPnkRjc37s_qPVWGKh4ckHgP-_Jb3CEGTTYQV2L1CoLORcOzhXCwyEp-vR3YBClkKTMN2bt5My8A0gxFmjoLhfpFh2F0dG5ldHOI__________-EZXRoMpDgqA8zQAATC___________gmlkgnY0gmlwhBKMSPqJc2VjcDI1NmsxoQKeOCp6wA-TPR0NKtoIzO59hHBFHhOQFbiO3Vxw9LbMiYhzeW5jbmV0cw-DdGNwgiMpg3VkcIIjKQ" \
+          --jwt-secrets="/home/ubuntu/engram-tokio/output/cl/jwtsecret"
+
+[Install]
+WantedBy=default.target

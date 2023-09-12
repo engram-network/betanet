@@ -1,0 +1,50 @@
+[Unit]
+Description=Engram Tokio Client Execution Layer
+
+[Service]
+Type=simple
+User=ubuntu
+Restart=always
+RestartSec=12s
+ExecStart=/usr/local/bin/geth \
+        --http \
+        --http.port 8545 \
+        --http.api=eth,net,web3,admin,engine,debug,txpool \
+        --http.addr=0.0.0.0 \
+        --http.vhosts=* \
+        --http.corsdomain=* \
+        --graphql \
+        --ws \
+        --ws.api=eth,net,web3,admin,engine,debug,txpool \
+        --ws.port 8546 \
+        --ws.addr=0.0.0.0 \
+        --ws.origins=* \
+        --rpc.allow-unprotected-txs \
+        --identity "Enterprise-Tokio" \
+        --maxpeers 50 \
+        --nat extip:18.142.177.161 \
+        --metrics \
+        --metrics.addr 127.0.0.1 \
+        --metrics.expensive \
+        --metrics.influxdb \
+        --metrics.influxdb.username "tokiogram" \
+        --metrics.influxdb.database "tokiogram" \
+        --metrics.influxdb.password "tokiogram" \
+        --metrics.influxdb.endpoint "http://127.0.0.1:8086" \
+        --metrics.port 6060 \
+        --nodiscover \
+        --networkid 130 \
+        --datadir "/home/ubuntu/engram-tokio/geth/1" \
+        --authrpc.jwtsecret=/home/ubuntu/engram-tokio/output/el/jwtsecret \
+        --authrpc.addr="localhost" \
+        --authrpc.port 8551 \
+        --port 30303 \
+        --discovery.port 30303 \
+        --verbosity 3 \
+        --syncmode full \
+        --blobpool.datacap 10737418240 \
+        --blobpool.datadir "blobpool" \
+        --blobpool.pricebump 100
+
+[Install]
+WantedBy=default.target

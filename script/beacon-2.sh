@@ -1,0 +1,28 @@
+nohup lighthouse bn \
+	  --http \
+	  --eth1 \
+	  --staking \
+	  --http-address=127.0.0.1 \
+	  --http-allow-sync-stalled \
+	  --subscribe-all-subnets \
+	  --http-allow-origin='*' \
+	  --eth1-endpoints "http://127.0.0.1:8547" \
+	  --execution-endpoints "http://127.0.0.1:8552" \
+	  --genesis-backfill \
+	  --http-port=5053 \
+	  --enr-address 145.40.71.45 \
+	  --listen-address '145.40.71.45' \
+	  --enr-udp-port=9001 \
+	  --enr-tcp-port=9001 \
+	  --discovery-port=9001 \
+	  --port=9001 \
+	  --target-peers 400 \
+	  --logfile-debug-level info \
+	  --logfile-max-number 5 \
+	  --logfile-max-size 100 \
+	  --logfile-compress \
+	  --testnet-dir "/mnt/testnet/testnet/output/custom_config_data" \
+	  --datadir "/mnt/testnet/database/beacon/2" \
+	  --jwt-secrets="/mnt/testnet/testnet/output/cl/jwtsecret" \
+	  --boot-nodes="enr:-Ly4QLOQLMxx_JbySSK_1ce2KrpDJvwMACU2g6hU_ZBT1jTFGk0QxcZugX0f_jBBNbmKsVDSu-pm6VaB9O71w_Bh14cBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD5UeVsQAABCf__________gmlkgnY0gmlwhJEoRy2Jc2VjcDI1NmsxoQORRSLpqJzuwy8vVCLLnqCVtMnoi2DEEbCQIC4JbPwu4YhzeW5jbmV0cwCDdGNwgiMog3VkcIIjKA" \
+	  > /mnt/testnet/testnet/logs/bn-2.log &

@@ -1,0 +1,31 @@
+nohup lighthouse \
+      bn \
+	  --http \
+	  --eth1 \
+	  --staking \
+	  --http-address=127.0.0.1 \
+	  --http-allow-sync-stalled \
+	  --subscribe-all-subnets \
+	  --http-allow-origin='*' \
+	  --eth1-endpoints "http://127.0.0.1:8545" \
+	  --execution-endpoints "http://127.0.0.1:8551" \
+	  --genesis-backfill \
+	  --http-port=5052 \
+	  --enr-address 18.140.72.250 \
+	  --listen-address 18.140.72.250 \
+	  --metrics \
+	  --metrics-address 127.0.0.1 \
+	  --metrics-allow-origin='*' \
+	  --metrics-port=5054 \
+	  --enr-udp-port=9000 \
+	  --enr-tcp-port=9000 \
+	  --discovery-port=9000 \
+	  --port=9000 \
+	  --target-peers 400 \
+	  --logfile-max-number 5 \
+	  --logfile-max-size 200 \
+	  --logfile-compress \
+	  --testnet-dir "/home/ubuntu/engram-tokio/output/custom_config_data" \
+	  --datadir "/home/ubuntu/engram-tokio/beacon/1" \
+	  --jwt-secrets="/home/ubuntu/engram-tokio/output/cl/jwtsecret" \
+	  > /home/ubuntu/engram-tokio/logs/bn-1.log &
