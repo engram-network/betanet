@@ -1,4 +1,6 @@
-![Images](https://s3.engramnet.io/mass-adoption-img.png)
+<p align="center" width="100%">
+    <img width="33%" src=".github/images/engram.png">
+</p>
 
 # Engram Network Tokio Testnet Genesis Validator Setup
 
